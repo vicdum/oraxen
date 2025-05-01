@@ -34,6 +34,10 @@ jobs:
       - name: GitHub Releases’a yükle
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: nightly-${{ github.run_number }}
+          name: "Gece Derlemesi"
           files: ${{ steps.find_jar.outputs.artifact_path }}
+          prerelease: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
